@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Header } from './components/header/Header';
+import { ProductListing } from './components/product-listing/ProductListing';
+import { ProductDetails } from './components/product-details/ProductDetails';
+import { CartComponent } from './components/cart/CartComponent';
+import { ProductCategories } from './components/product-categories/ProductCategories';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid p-0">
+      <Router>
+        <Header />
+        <div className='main-cointainer bg-red'>
+          <Routes>
+            <Route path='/' element={<ProductListing />}></Route>
+            <Route path='/product/:productId' element={<ProductDetails />}></Route>
+            <Route path='/cartItems' element={<CartComponent />}></Route>
+            <Route path='/categories' element={<ProductCategories />}></Route>
+            <Route path='/categories/:category' element={<ProductListing />}></Route>
+            <Route>404 Not Found!</Route>
+          </Routes>
+        </div>
+      </Router>
     </div>
   );
 }
