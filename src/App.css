@@ -4,22 +4,30 @@
   margin: 0;
 }
 
-@media (max-width:768px){
-  .main-cointainer{background:white}
+@media (max-width:912px){
+  .main-cointainer{
+    background:white;
+    bottom: 3rem;
+  }
 }
 
-@media (min-width:769px){
-  .main-cointainer{background:#F1D5D9}
+@media (min-width:913px){
+  .main-cointainer{
+    background:#F1D5D9;
+    bottom: 0;
+  }
+  
 }
 
 .main-cointainer {
   position: absolute;
   top: 88px;
-  bottom: 3rem;
+  /* bottom: 0; */
   right: 0;
   left: 0;
   overflow-y: auto;
 }
+
 
 .card > .image {
   height: 300px;

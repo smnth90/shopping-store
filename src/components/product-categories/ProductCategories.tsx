@@ -22,7 +22,7 @@ export const ProductCategories = () => {
     }, []);
 
     return (
-        <div className="container-fluid col m-2">
+        <div className="container-fluid col mt-2">
             <h4>Filter by Category</h4>
             <div className="row justify-content-between mt-3">
                 {categories.map(category => (

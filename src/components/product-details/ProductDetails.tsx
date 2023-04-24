@@ -33,7 +33,7 @@ export const ProductDetails= () => {
     }
 
     return (
-        <div className="container m-2" style={{height: '100%'}}>
+        <div className="container mt-2" style={{height: '100%'}}>
             <div className="ui row justify-content-between align-items-center p-2" style={{height: '100%'}}>
                 <div className="card col-lg-5 col-xs-12 mb-2">
                     <img src={image} alt={title} />

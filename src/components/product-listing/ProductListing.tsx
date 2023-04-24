@@ -36,7 +36,7 @@ export const ProductListing = () => {
     }, [category]);
 
     return (
-        <div className="container-fluid col m-2">
+        <div className="container-fluid col mt-2">
             <div className="row">
                 <ProductComponent selectedCategory={selectedCategory}/>
             </div>
