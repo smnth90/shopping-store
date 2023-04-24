@@ -10,22 +10,22 @@ export const ProductDetails= () => {
     const product = useSelector((state: any) => state.products.selectedProduct);
     const {title, id, price, image, description} = product;
 
-    const fetchProductById = async () => {
-        const res: any = await axios
-            .get(`https://fakestoreapi.com/products/${productId}`)
-            .catch( err => {
-                console.error(`error in getting products ${err}`);
-            });
-        console.log({res});
-        if (res.status === 200) {
-            dispatch(selectedProduct(res.data));
-        }
-    }
-
     useEffect(() => {
+        const fetchProductById = async () => {
+            const res: any = await axios
+                .get(`https://fakestoreapi.com/products/${productId}`)
+                .catch( err => {
+                    console.error(`error in getting products ${err}`);
+                });
+            console.log({res});
+            if (res.status === 200) {
+                dispatch(selectedProduct(res.data));
+            }
+        }
         if (productId && productId !== "") {
             fetchProductById();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [productId]);
 
     const addToCart = () => {

@@ -26,15 +26,13 @@ export const CartComponent = () => {
         );
     });
 
-    const getSubTotal = () => {
+    useEffect(() => {
         let cartPrice =  cartItems.reduce((acc: number, curr: CartItem) => {
             const product: Product = products.find((product: Product) => product.id === curr.id);
             return acc + Math.round(curr.quantity * product.price);
         } , 0);
         setSubTotal(cartPrice);
-    }
-
-    useEffect(() => getSubTotal(), [cartItems]);
+    }, [cartItems, products]);
 
     return (
         <div className="container mt-2">

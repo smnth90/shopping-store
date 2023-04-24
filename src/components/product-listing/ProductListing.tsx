@@ -10,20 +10,20 @@ export const ProductListing = () => {
     const { category } = useParams();
     const [selectedCategory, setSelectedCategory] = useState('All');
 
-    const fetchProducts = async () => {
-        const res: any = await axios
-            .get('https://fakestoreapi.com/products')
-            .catch( err => {
-                console.error(`error in getting products ${err}`);
-            });
-        console.log({res});
-        if (res.status === 200) {
-            dispatch(setProducts(res.data));
-        }
-    }
-
     useEffect(() => {
+        const fetchProducts = async () => {
+            const res: any = await axios
+                .get('https://fakestoreapi.com/products')
+                .catch( err => {
+                    console.error(`error in getting products ${err}`);
+                });
+            console.log({res});
+            if (res.status === 200) {
+                dispatch(setProducts(res.data));
+            }
+        }
         fetchProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
